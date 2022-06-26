@@ -57,6 +57,7 @@ function show (req, res) {
   .populate('score')
   .then(course => {
     res.render('courses/show', {
+      title: course,
       course,
     })
   })

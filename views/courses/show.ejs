@@ -1,3 +1,6 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
 <main>
   <h1><%= course.name %> </h1>
   <h2>Reviews</h2>
@@ -22,6 +25,15 @@
       <option value="10">10</option>
     </select>
     <button type="submit">Add Review</button>
+  </form> 
+  <form
+    id="add-score-form"
+    action="/courses/<%= course._id %>/scores?_method=PATCH"
+    method="POST"
+    >
+    <label for="score-input">Total Score</label>
+    <input type="text" name="score" id="score input">
+    <button type ='submit'>Add Score</button>
   </form>
   <% if (course.reviews.length) { %> 
     <table>
@@ -54,3 +66,5 @@
       <h3>No Reviews Yet</h3>
     <% } %>
   </main>
+
+  <%- include('../partials/footer') %>
