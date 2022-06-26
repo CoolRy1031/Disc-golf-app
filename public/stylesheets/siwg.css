@@ -41,3 +41,24 @@
   position: absolute;
   width: 1px;
 }
+
+nav > a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #424748;
+}
+
+nav > a:visited {
+  color: #424748;
+}
+
+nav > a:hover {
+  color: white;
+  background-color: #424748;
+}
+
+nav > a.active {
+  color: white;
+}
