@@ -11,7 +11,8 @@ const courseSchema = new Schema ({
   name: { type: String, required: true},
   holes: { type: Number, enum: [9,18]},
   par: Number,
-  reviews: [reviewSchema]
+  reviews: [reviewSchema],
+  score: { type: Schema.Types.ObjectId, ref: 'Profile'},
 } , {
   timestamps: true
 })

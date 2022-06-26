@@ -1,0 +1,33 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/courses/index.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>All Courses</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Holes</th>
+        <th>Par</th>
+        <th>Details</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% courses.forEach(course => { %>
+        <tr>
+          <td><%= course.name %></td>
+          <td><%= course.holes %></td>
+          <td><%= course.par %> </td>
+          <td><a href="/courses/<%= course._id %>">DETAILS</a></td>
+          <td>
+            <form action="/courses/<%= course._id %>?_method=DELETE" method="POST">
+              <button class="btn" type="submit">X</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+      <% }) %>
+  </table>
+</main>
