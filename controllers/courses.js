@@ -1,11 +1,13 @@
 import { Course } from "../models/course.js";
 
-function index(req, res) {
-  res.render('course/index', {
-    title,
+function newCourse(req,res) {
+  res.render('courses/new', {
+    title: 'Enter Course'
   })
+
 }
 
-export {
-  index,
+
+export{
+  newCourse as new
 }
