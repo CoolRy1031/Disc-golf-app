@@ -4,10 +4,6 @@ function newCourse(req, res) {
   res.render('courses/new', {
     title: 'Enter Course'
   })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/courses')
-  })
 }
 
 function create(req, res) {
@@ -35,26 +31,23 @@ function index(req, res) {
     res.redirect('/courses')
   })
 }
+
 function deleteCourse(req, res) {
   Course.findById(req.params.id)
   .then(course => {
-    if (course.owner.equals(req.user.profile._id)) {
       course.delete()
       .then(() => {
-        res.redirect('/tacos')
+        res.redirect('/courses')
       })
-    } else {
-      throw new Error ('NOT AUTHORIZED')
-    }
   })
   .catch(err => {
     console.log(err)
     res.redirect("/courses")
   })
 }
+
 function show (req, res) {
   Course.findById(req.params.id)
-  .populate('score')
   .then(course => {
     res.render('courses/show', {
       title: course,
@@ -65,8 +58,8 @@ function show (req, res) {
     console.log(err)
     res.redirect('/course')
   })
-
 }
+
 function createReview(req, res) {
   Course.findById(req.params.id)
   .then(course => {
@@ -80,10 +73,19 @@ function createReview(req, res) {
     console.log(err)
     res.redirect('/course')
   })
-
-
 }
 
+function createScore(req, res) {
+  console.log(req.body)
+  Course.findById(req.params.id)
+  .then(course => {
+    course.strokes.push(req.body)
+    course.save()
+    .then (() => {
+      res.redirect(`/courses/${course._id}`)
+    })
+  })
+}
 
 
 
@@ -94,5 +96,6 @@ export {
   index,
   deleteCourse as delete, 
   show,
-  createReview
+  createReview,
+  createScore
 }

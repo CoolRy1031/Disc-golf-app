@@ -7,12 +7,16 @@ const reviewSchema = new Schema ({
   rating: { type: Number, min: 1, max: 10, default: 1}
 })
 
+const scoreSchema = new Schema ({
+  score: Number,
+})
+
 const courseSchema = new Schema ({
   name: { type: String, required: true},
   holes: { type: Number, enum: [9,18]},
   par: Number,
+  strokes: [scoreSchema],
   reviews: [reviewSchema],
-  score: { type: Schema.Types.ObjectId, ref: 'Profile'},
 } , {
   timestamps: true
 })

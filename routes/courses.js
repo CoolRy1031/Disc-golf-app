@@ -9,6 +9,7 @@ router.get('/new', isLoggedIn, coursesCtrl.new)
 router.get('/:id', isLoggedIn, coursesCtrl.show)
 router.post('/', isLoggedIn, coursesCtrl.create)
 router.post('/:id/reviews', isLoggedIn, coursesCtrl.createReview)
+router.post('/:id/strokes', isLoggedIn, coursesCtrl.createScore)
 router.delete('/:id', isLoggedIn, coursesCtrl.delete)
 
 

@@ -27,19 +27,44 @@
     <button type="submit">Add Review</button>
   </form> 
   <form
-    id="add-score-form"
-    action="/courses/<%= course._id %>/scores?_method=PATCH"
-    method="POST"
-    >
+  id="add-score-form"
+  action="/courses/<%= course._id %>/strokes"
+  method="POST"
+  >
     <label for="score-input">Total Score</label>
-    <input type="text" name="score" id="score input">
+    <input type="text" name="score" id="score-input">
     <button type ='submit'>Add Score</button>
+  </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (course.strokes.length) { %>
+          <% course.strokes.forEach(stroke => { %>
+              <tr>
+                <td><%= stroke.score %></td>
+              </tr>
+            <% }) %>
+            <tr>
+            <tr>
+              <td colspan="2"></td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </table>
+      <% } else { %>
+        <h3>No Scores Yet</h3>
+      <% } %>
   </form>
   <% if (course.reviews.length) { %> 
     <table>
       <thead>
         <tr>
-          <th>Date</th>
           <th>Review</th>
           <th>Rating</th>
         </tr>
