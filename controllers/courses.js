@@ -92,13 +92,25 @@ function createScore(req, res) {
     })
   })
 }
+
+function edit(req, res) {
+  req.body.owner = req.user.profile._id
+  Course.findById(req.params.id)
+  .then(course => {
+    res.render('courses/edit', {
+      title: 'Edit Course',
+      course,
+    })
+  })
+}
+
 function updateCourse(req, res) {
   Course.findById(req.params.id)
   .then(course => {
     if (course.owner.equals(req.user.profile._id)) {
       course.updateOne(req.body, {new: true})
       .then(updatedCourse => {
-        res.redirect('/course')
+        res.redirect('/courses')
       })
     } else {
       throw new Error ('NOT AUTHORIZED')
@@ -115,5 +127,6 @@ export {
   show,
   createReview,
   createScore,
+  edit,
   updateCourse,
 }

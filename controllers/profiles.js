@@ -1,3 +1,4 @@
+import { Course } from "../models/course.js";
 import { Profile } from "../models/profile.js";
 
 
@@ -17,13 +18,17 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
-  .populate('stats')
   .then(profile => {
+    console.log(profile, 'profile')
+    // searching through courses to find all courses where owner id is same as profile
+    // another .then 
+    Course.find
     const isSelf = profile._id.equals(req.user.profile._id)
     res.render('profiles/show', {
       title: `${profile.name}'s profile`,
       profile,
       isSelf, 
+      // courses
     })
   })
   .catch(err => {
