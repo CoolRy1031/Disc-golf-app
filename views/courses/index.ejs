@@ -3,6 +3,7 @@
 <%- include('../partials/nav') %>
 
 <main>
+  <% if (user) { %>
   <h1>All Courses</h1>
   <table>
     <thead>
@@ -30,4 +31,5 @@
       </tbody>
       <% }) %>
   </table>
+  <% } %>
 </main>

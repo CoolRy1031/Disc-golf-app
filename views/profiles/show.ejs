@@ -1,0 +1,38 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <% if (profile.avatar) { %>
+    <div>
+      <img 
+        class="profile-avatar"
+        src="<%= profile.avatar %>" 
+        alt="<%= profile.name %> avatar"
+      >
+    </div>
+  <% } %>
+  <% if (isSelf)  {%> 
+    <h2>Here are your Stats!</h2>
+    <form action="/profiles/<%= profile._id %>" method="POST">
+    </form>
+    <ul>
+      <% Courses.forEach(course => { %>
+        <li><%= stat.name %></li>
+        <li><%= stat.par %> </li>
+        <li><%= stat.strokes._id %> </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

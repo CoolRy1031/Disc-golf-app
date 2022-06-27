@@ -3,6 +3,7 @@
 
 
 <main>
+  <% if (user) { %> 
   <h1><%= title %></h1>
   <form id="new-form" action="/courses" method="POST">
     <label for="name-input" autocomplete="off">Course-Name:</label>
@@ -16,6 +17,7 @@
     </select>
     <button type="submit">Add Course</button>
   </form>
+  <% } %>
 </main>
 
 
