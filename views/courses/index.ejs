@@ -12,7 +12,6 @@
         <th>Holes</th>
         <th>Par</th>
         <th>Details</th>
-        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -22,14 +21,11 @@
           <td><%= course.holes %></td>
           <td><%= course.par %> </td>
           <td><a href="/courses/<%= course._id %>">DETAILS</a></td>
+          <% }) %>
           <td>
-            <form action="/courses/<%= course._id %>?_method=DELETE" method="POST">
-              <button class="btn" type="submit">X</button>
-            </form>
           </td>
         </tr>
       </tbody>
-      <% }) %>
   </table>
   <% } %>
 </main>

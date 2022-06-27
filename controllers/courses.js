@@ -7,6 +7,7 @@ function newCourse(req, res) {
 }
 
 function create(req, res) {
+  req.body.owner = req.user.profile._id
   console.log(req.body)
   Course.create(req.body)
   .then(course => {
@@ -24,6 +25,7 @@ function index(req, res) {
     res.render("courses/index", {
       courses,
       title: "All Courses",
+      user: req.user ? req.user : null
     })
   })
   .catch(err => {
@@ -35,10 +37,14 @@ function index(req, res) {
 function deleteCourse(req, res) {
   Course.findById(req.params.id)
   .then(course => {
+    if (course.owner.equals(req.user.profile._id)) {
       course.delete()
       .then(() => {
         res.redirect('/courses')
       })
+    } else {
+      throw new Error ('NOT AUTHORIZED')
+    }
   })
   .catch(err => {
     console.log(err)
@@ -86,8 +92,19 @@ function createScore(req, res) {
     })
   })
 }
-
-
+function updateCourse(req, res) {
+  Course.findById(req.params.id)
+  .then(course => {
+    if (course.owner.equals(req.user.profile._id)) {
+      course.updateOne(req.body, {new: true})
+      .then(updatedCourse => {
+        res.redirect('/course')
+      })
+    } else {
+      throw new Error ('NOT AUTHORIZED')
+    }
+  })
+}
 
 
 export {
@@ -97,5 +114,6 @@ export {
   deleteCourse as delete, 
   show,
   createReview,
-  createScore
+  createScore,
+  updateCourse,
 }

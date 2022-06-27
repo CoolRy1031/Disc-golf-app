@@ -2,41 +2,54 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <% if (user) { %>    
   <h1><%= course.name %> </h1>
-  <h2>Reviews</h2>
-  <form 
-    id="add-review-form"
-    action="/courses/<%= course._id %>/reviews"
+  <% if (course.owner.equals(user?.profile._id)) { %>
+    <form
+    id="delete-form"
+    action="/courses/<%= course._id %>?_method=DELETE"
     method="POST"
-  >
-    <label for="content-textarea">Type-Review:</label>
-    <textarea name="content" id="content-textarea"></textarea>
-    <label for="rating-select">Rating:</label>
-    <select name="rating" id="rating-select">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select>
-    <button type="submit">Add Review</button>
-  </form> 
+    >
+    <button type="submit">Delete Course</button>
+  </form>
   <form
+  id="update-form"
+  action="/courses/<%= course._id %>/?_method=PUT"
+  method="POST"
+  >
+  <button type="submit">Update Course</button>
+</form>   
+<h2>Reviews</h2>
+<form 
+id="add-review-form"
+action="/courses/<%= course._id %>/reviews"
+method="POST">
+<label for="content-textarea">Type-Review:</label>
+<textarea name="content" id="content-textarea"></textarea>
+<label for="rating-select">Rating:</label>
+<select name="rating" id="rating-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  <button type="submit">Add Review</button>
+</form> 
+<form
   id="add-score-form"
   action="/courses/<%= course._id %>/strokes"
   method="POST"
   >
-    <label for="score-input">Total Score</label>
-    <input type="text" name="score" id="score-input">
-    <button type ='submit'>Add Score</button>
+  <label for="score-input">Total Score</label>
+  <input type="text" name="score" id="score-input">
+  <button type ='submit'>Add Score</button>
   </form>
-  <% } %>
+<% } %>
       <table>
         <thead>
           <tr>

@@ -17,6 +17,7 @@ const courseSchema = new Schema ({
   par: Number,
   strokes: [scoreSchema],
   reviews: [reviewSchema],
+  owner: {type: Schema.Types.ObjectId, ref: "Profile"}
 } , {
   timestamps: true
 })

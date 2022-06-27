@@ -11,6 +11,7 @@ router.post('/', isLoggedIn, coursesCtrl.create)
 router.post('/:id/reviews', isLoggedIn, coursesCtrl.createReview)
 router.post('/:id/strokes', isLoggedIn, coursesCtrl.createScore)
 router.delete('/:id', isLoggedIn, coursesCtrl.delete)
+router.put('/:id', isLoggedIn, coursesCtrl.updateCourse)
 
 
 
