@@ -16,10 +16,10 @@
     <form action="/profiles/<%= profile._id %>" method="POST">
     </form>
     <ul>
-      <% Courses.forEach(course => { %>
+      <% profile.stats?.forEach(stat => { %>
         <li><%= stat.name %></li>
         <li><%= stat.par %> </li>
-        <li><%= stat.strokes._id %> </li>
+        <li><%= stat.strokes %> </li>
       <% }) %>
     </ul>
   <% } %>

@@ -6,7 +6,6 @@ const profileSchema = new Schema ({
   name: String,
   avatar: String,
   stats: [{ type: Schema.Types.ObjectId, ref:"Course" }],
-  strictPopulate: false,
 
 
 }, {

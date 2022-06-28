@@ -1,4 +1,5 @@
 import { Course } from "../models/course.js";
+import { Profile } from "../models/profile.js"
 
 function newCourse(req, res) {
   res.render('courses/new', {
@@ -11,7 +12,17 @@ function create(req, res) {
   console.log(req.body)
   Course.create(req.body)
   .then(course => {
-    res.redirect('/courses')
+    Profile.findById(req.user.profile._id)
+    .then(profile => {
+      console.log(profile)
+      profile.stats.push(course)
+      profile.save()
+      .then(() =>{
+        res.redirect('/courses')
+
+      })
+    })
+
   })
   .catch(err => {
     console.log(err)
