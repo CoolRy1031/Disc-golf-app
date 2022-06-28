@@ -65,7 +65,7 @@ function show (req, res) {
   Course.findById(req.params.id)
   .then(course => {
     res.render('courses/show', {
-      title: course,
+      title: 'Your Course',
       course,
     })
   })

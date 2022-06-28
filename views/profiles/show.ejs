@@ -18,10 +18,11 @@
     </form>
     <ul>
       <% profile.stats?.forEach(stat => { %>
-
-        <li>Course:  <%= stat.name %></li>
+        <h5>Course:  <%= stat.name %></h5>
         <li>Par:   <%= stat.par %></li> 
-        <li>Score:  <%= stat.strokes %></li>
+        <% stat.strokes.forEach(stroke => { %>
+        <li>Score:  <%= stroke.score %></li>
+          <% }) %>
       <% }) %>
     </ul>
   <% } %>

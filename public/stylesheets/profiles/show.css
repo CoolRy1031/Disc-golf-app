@@ -2,6 +2,15 @@ h2{
   font-size: 18px;
 }
 
-ul{
+h5{
   font-size: 14px;
+}
+
+ul{
+  font-size: 12px;
+  padding: 20px;
+}
+
+li{
+  padding: 10px
 }

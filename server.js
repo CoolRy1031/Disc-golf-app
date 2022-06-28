@@ -9,6 +9,8 @@ import methodOverride from 'method-override'
 import passport from 'passport'
 import { passUserToView } from './middleware/middleware.js'
 
+
+
 // connect to MongoDB with mongoose
 import('./config/database.js')
 
@@ -20,6 +22,7 @@ import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as coursesRouter } from './routes/courses.js'
 import { router as profileRouter } from './routes/profiles.js'
+
 
 // create the express app
 const app = express()
@@ -41,6 +44,8 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+app.use(express.static('public'))
+
 
 // session middleware
 app.use(
