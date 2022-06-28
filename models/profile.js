@@ -7,7 +7,6 @@ const profileSchema = new Schema ({
   avatar: String,
   stats: [{ type: Schema.Types.ObjectId, ref:"Course" }],
 
-
 }, {
   timestamps: true
 })

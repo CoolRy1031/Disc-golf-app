@@ -19,10 +19,8 @@ function create(req, res) {
       profile.save()
       .then(() =>{
         res.redirect('/courses')
-
       })
     })
-
   })
   .catch(err => {
     console.log(err)

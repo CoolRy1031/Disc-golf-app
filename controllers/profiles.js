@@ -27,8 +27,6 @@ function show(req, res) {
       profile,
       isSelf, 
     })
-    // searching through courses to find all courses where owner id is same as profile
-
   })
   .catch(err => {
     console.log(err)
