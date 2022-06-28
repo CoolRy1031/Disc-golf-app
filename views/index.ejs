@@ -1,8 +1,9 @@
 <%- include('./partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/style.css">
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Welcome, <%= user ? user.profile.name : "Please click above to sign in" %></h1>
+  <h1>Welcome, <%= user ? user.profile.name : "Your Disc Golf Journey Starts Here. Sign in above" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
