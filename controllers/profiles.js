@@ -35,10 +35,9 @@ function show(req, res) {
 }
 
 function deleteStats(req, res){
-  console.log(req.params, '****************')
-  console.log('profileId', req.params.profileId)
-  console.log('courseId', req.params.courseId)
-  console.log('scoreId', req.params.scoreId)
+  // console.log('profileId', req.params.profileId)
+  // console.log('courseId', req.params.courseId)
+  // console.log('scoreId', req.params.scoreId)
   Profile.findById(req.params.profileId)
   .then(profile => {
     Course.findById(req.params.courseId)

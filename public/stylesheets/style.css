@@ -13,11 +13,16 @@ html {
 
 /* resets font size to be 62.5% of the user preference - in most browser configurations this will be 10px */
 :root {
-  font-size: 62.5%;
+  font-size: 70%;
 }
 
 body {
-  background-color: chartreuse;
+background-image: url(/images/golf/grass.jpg);
+background-position: center;
+background-size: auto;
+max-width: 1924px;
+  
+  
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -25,8 +30,8 @@ body {
 }
 
 nav {
-  background-color: gold;
-  font-size: 1.6rem;
+  background-color:black;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +45,7 @@ main {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 50px;
@@ -52,7 +57,7 @@ nav > a {
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
-  color: #424748;
+  color: white;
 }
 
 nav > a:visited {
@@ -82,4 +87,9 @@ nav > a.active {
 
 nav > *:nth-last-child(1){
   margin-left: auto;
+}
+
+label{
+  font-size: 14px;
+  font-weight: bold;
 }

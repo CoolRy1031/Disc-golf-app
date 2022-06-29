@@ -9,7 +9,7 @@ function newCourse(req, res) {
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
-  console.log(req.body)
+  // console.log(req.body)
   Course.create(req.body)
   .then(course => {
     Profile.findById(req.user.profile._id)
@@ -93,7 +93,7 @@ function createReview(req, res) {
 }
 
 function createScore(req, res) {
-  console.log(req.body)
+  // console.log(req.body)
   Course.findById(req.params.id)
   .then(course => {
     course.strokes.push(req.body)

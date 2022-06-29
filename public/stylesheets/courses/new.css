@@ -1,3 +1,11 @@
+body{
+  background-image: url(/images/golf/grass2.jpg);
+  background-position: center;
+  background-size: auto;
+  max-width: 1924px;
+
+}
+
 ul {
   margin: 0 0 16px;
   padding: 0;

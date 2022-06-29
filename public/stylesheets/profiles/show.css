@@ -1,16 +1,25 @@
+body{
+  background-image: url(/images/golf/grass2.jpg);
+  background-position: center;
+  background-size: auto;
+  max-width: 1924px;
+
+}
+
 h2{
-  font-size: 18px;
+  font-size: 30px;
 }
 
 h5{
-  font-size: 14px;
+  font-size: 20px;
 }
 
 ul{
-  font-size: 12px;
-  padding: 20px;
+  font-size: 18px;
+  padding: 5px;
+  font-weight: bold;
 }
 
 li{
-  padding: 10px
+  padding: 5px
 }

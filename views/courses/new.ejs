@@ -2,24 +2,23 @@
 <link rel="stylesheet" href="/stylesheets/courses/new.css" />
 <%- include('../partials/nav') %>
 
-
 <main>
-  <% if (user) { %>
-  <h1><%= title %></h1>
-  <form id="new-form" action="/courses" method="POST">
-    <label for="name-input" autocomplete="off">Course-Name:</label>
-    <input type="text" name="name" id="name-input" autocomplete="off">
-    <label for="par-input">Par:</label>
-    <input type="text" name="par" id="par-input">
-    <label for="holes-select">Holes:</label>
-    <select name="holes" id="holes-select">
-      <option value="9">9</option>
-      <option value="18">18</option>
-    </select>
-    <button type="submit">Add Course</button>
-  </form>
-  <% } %>
-</main>
+      <% if (user) { %>
+        <h1><%= title %></h1>
+        <form id="new-form" action="/courses" method="POST">
+          <label for="name-input" autocomplete="off">Course-Name:</label>
+          <input type="text" name="name" id="name-input" autocomplete="off">
+          <label for="par-input">Par:</label>
+          <input type="text" name="par" id="par-input">
+          <label for="holes-select">Holes:</label>
+          <select name="holes" id="holes-select">
+            <option value="9">9</option>
+            <option value="18">18</option>
+          </select>
+          <button type="submit">Add Course</button>
+        </form>
+        <% } %>
+ </main>
 
 
 

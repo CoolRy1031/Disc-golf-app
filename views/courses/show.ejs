@@ -3,8 +3,8 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= course.name %> </h1>
-  <h2><%= course.owner.name %> </h2>
+  <h1><%= course.name %></h1>
+  <h2><%= course.owner.name %></h2>
   <% if (course.owner.equals(user?.profile._id)) { %>
     <form
     id="delete-form"
@@ -12,37 +12,37 @@
     method="POST"
     >
     <button type="submit">Delete Course</button>
+    </form> 
+  <h2>Reviews</h2>
+    <form 
+    id="add-review-form"
+    action="/courses/<%= course._id %>/reviews"
+    method="POST">
+    <label for="content-textarea">Type-Review:</label>
+    <textarea name="content" id="content-textarea"></textarea>
+    <label for="rating-select">Rating:</label>
+    <select name="rating" id="rating-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+        <button type="submit">Add Review</button>
   </form> 
-<h2>Reviews</h2>
-<form 
-id="add-review-form"
-action="/courses/<%= course._id %>/reviews"
-method="POST">
-<label for="content-textarea">Type-Review:</label>
-<textarea name="content" id="content-textarea"></textarea>
-<label for="rating-select">Rating:</label>
-<select name="rating" id="rating-select">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-  </select>
-  <button type="submit">Add Review</button>
-</form> 
-<form
-  id="add-score-form"
-  action="/courses/<%= course._id %>/strokes"
-  method="POST"
-  >
-  <label for="score-input">Total Score</label>
-  <input type="text" name="score" id="score-input" autocomplete="off">
-  <button type ='submit'>Add Score</button>
+  <form
+    id="add-score-form"
+    action="/courses/<%= course._id %>/strokes"
+    method="POST"
+    >
+    <label for="score-input">Total Score</label>
+    <input type="text" name="score" id="score-input" autocomplete="off">
+    <button type ='submit'>Add Score</button>
   </form>
 <% } %>
       <table>
@@ -52,54 +52,52 @@ method="POST">
           </tr>
         </thead>
         <tbody>
-          <% if (course.strokes.length) { %>
-          <% course.strokes.forEach(stroke => { %>
-              <tr>
-                <td><%= stroke.score %></td>
-              </tr>
+    <% if (course.strokes.length) { %>
+      <% course.strokes.forEach(stroke => { %>
+            <tr>
+              <td><%= stroke.score %></td>
+            </tr>
             <% }) %>
             <tr>
             <tr>
               <td colspan="2"></td>
-              <td>
-              </td>
             </tr>
           </tbody>
         </table>
       </table>
-      <% } else { %>
+    <% } else { %>
         <h3>No Scores Yet</h3>
       <% } %>
-  </form>
-  <% if (course.reviews.length) { %> 
+    </form>
+      <% if (course.reviews.length) { %> 
     <table>
-      <thead>
-        <tr>
-          <th>Review</th>
-          <th>Rating</th>
-        </tr>
-      </thead>
+        <thead>
+          <tr>
+            <th>Review</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
       <tbody>
-        <%  let total = 0 %>
-        <% course.reviews.forEach(review => { %>
-            <% total += review.rating %>
+            <%  let total = 0 %>
+            <% course.reviews.forEach(review => { %>
+              <% total += review.rating %>
             <tr>
               <td><%= review.content %></td>
               <td><%= review.rating %></td>
             </tr>
-          <% }) %>
+            <% }) %>
           <tr>
-            <td colspan="2"></td>
+          <td colspan="2"></td>
             <td>
-              <strong><%= (total / course.reviews.length).toFixed(1) %></strong>
+            <strong><%= (total / course.reviews.length).    toFixed(1) %>
+            </strong>
             </td>
           </tr>
-        </tbody>
-      </table>
+      </tbody>
     </table>
     <% } else { %>
       <h3>No Reviews Yet</h3>
     <% } %>
-  </main>
+</main>
 
   <%- include('../partials/footer') %>
