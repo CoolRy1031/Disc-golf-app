@@ -4,6 +4,7 @@
 
 <main>
   <h1><%= course.name %> </h1>
+  <h2><%= course.owner.name %> </h2>
   <% if (course.owner.equals(user?.profile._id)) { %>
     <form
     id="delete-form"

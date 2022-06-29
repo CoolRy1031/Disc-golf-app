@@ -34,9 +34,22 @@ function show(req, res) {
   })
 }
 
+function deleteStats(req, res){
+  Course.findById(req.user.profile._id.stats)
+  .then(course => {
+    course.stats.remove({_id: req.params.id})
+    course.save()
+    .then (() => {
+      res.redirect (`/profiles/${req.user.profile._id}}`)
+    })
+
+    })
+}
+
 
 
 export{
   index,
-  show
+  show,
+  deleteStats as delete
 }

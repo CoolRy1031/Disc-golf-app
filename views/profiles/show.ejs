@@ -12,7 +12,7 @@
       >
     </div>
   <% } %>
-  <% if (isSelf)  {%> 
+  <% if (user)  {%> 
     <h2>Here are your Stats!</h2>
     <form action="/profiles/<%= profile._id %>" method="POST">
     </form>
@@ -26,9 +26,11 @@
       <% }) %>
     </ul>
   <% } %>
-
-
-
+  <% if (isSelf) { %>
+  <form action ="/profile/<%= profile._id.stats%>?_method=DELETE" method="POST">
+  <button>Delete Stats</button>
+  </form>
+  <%  } %>
 </main>
 
 

@@ -8,21 +8,21 @@
   <table>
     <thead>
       <tr>
+        <th>Owner</th>
         <th>Name</th>
         <th>Holes</th>
         <th>Par</th>
-        <th>Details</th>
-        <th>Edit</th>
       </tr>
     </thead>
     <tbody>
       <% courses.forEach(course => { %>
         <tr>
+          <td><%= course.owner.name %> </td>
           <td><%= course.name %></td>
           <td><%= course.holes %></td>
           <td><%= course.par %> </td>
-          <td><a style="color: black" href="/courses/<%= course._id %>">DETAILS</a></td>
-          <td><a style="color: black" href="/courses/<%= course._id %>/edit">EDIT</a>
+          <td><a href="/courses/<%= course._id %>"><button>Details</button></a></td>
+          <td><a href="/courses/<%= course._id %>/edit"><button>Edit</button></a></a>
 
           </td>
           <% }) %>

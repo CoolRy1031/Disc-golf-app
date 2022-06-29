@@ -30,6 +30,7 @@ function create(req, res) {
 
 function index(req, res) {
   Course.find({})
+  .populate('owner')
   .then(courses => {
     res.render("courses/index", {
       courses,
@@ -63,6 +64,7 @@ function deleteCourse(req, res) {
 
 function show (req, res) {
   Course.findById(req.params.id)
+  .populate('owner')
   .then(course => {
     res.render('courses/show', {
       title: 'Your Course',
