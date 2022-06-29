@@ -29,6 +29,7 @@ nav {
   font-size: 1.6rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 main {
@@ -77,4 +78,8 @@ nav > a.active {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+nav > *:nth-last-child(1){
+  margin-left: auto;
 }

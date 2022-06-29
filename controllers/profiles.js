@@ -41,7 +41,6 @@ function deleteStats(req, res){
   console.log('scoreId', req.params.scoreId)
   Profile.findById(req.params.profileId)
   .then(profile => {
-    // const course = profile.stats.id(req.params.courseId)
     Course.findById(req.params.courseId)
     .then(course => {
       if(course.owner.equals(req.user.profile._id)){
@@ -49,13 +48,11 @@ function deleteStats(req, res){
         course.save()
         .then(()=> {
           res.redirect (`/profiles/${profile._id}`)
-  
         })
       }else{
         throw new Error('Not Authorized')
       }
     })
-    // profile.stats.remove({_id: req.params.id})
   })
 }
 

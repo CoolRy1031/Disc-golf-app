@@ -3,17 +3,17 @@
 <%- include('./partials/nav') %>
 
 <main>
+  <h1>Welcome, <%= user ? user.profile.name : "Your Disc Golf Journey Starts Here. Sign in above" %></h1>
   <div class="golf-banner">
     <img src="images/golf/targets-header.jpeg" alt="golf" id="image">
-      <h1>Welcome, <%= user ? user.profile.name : "Your Disc Golf Journey Starts Here. Sign in above" %></h1>
-      <% if (user?.profile.avatar) { %>
+      <% if (user?.profile.name) { %>
         <div>
           <img
-          src="<%= user.profile.avatar %>"
-          alt="<%= user.profile.name %> avatar"
+          alt="<%= user.profile.name %> "
           />
         </div>
         <% } %>
+      </div>
   </div>
   </main>
   

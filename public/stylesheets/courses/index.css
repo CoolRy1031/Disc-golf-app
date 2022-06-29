@@ -1,10 +1,16 @@
 table {
   font-size: 20px;
+  border: 1px solid;
 }
 
 table thead th {
   padding: 5px;
   border-bottom: 2px solid #424748;
+}
+
+table body {
+  border: 1px solid;
+
 }
 
 table td {
