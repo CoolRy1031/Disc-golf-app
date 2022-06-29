@@ -21,16 +21,16 @@
         <h5>Course:  <%= stat.name %></h5>
         <li>Par:   <%= stat.par %></li> 
         <% stat.strokes.forEach(stroke => { %>
-        <li>Score:  <%= stroke.score %></li>
-          <% }) %>
+          <li>Score:  <%= stroke.score %></li>
+          <% if (isSelf) { %>
+            <form action ="/profiles/<%= profile._id %>/courses/<%=stat._id %>/scores/<%=stroke._id%>?_method=DELETE" method="POST">
+              <button>Delete Score</button>
+            </form>
+          <%  } %>
+        <% }) %>
       <% }) %>
     </ul>
   <% } %>
-  <% if (isSelf) { %>
-  <form action ="/profile/<%= profile._id.stats%>?_method=DELETE" method="POST">
-  <button>Delete Stats</button>
-  </form>
-  <%  } %>
 </main>
 
 

@@ -35,15 +35,28 @@ function show(req, res) {
 }
 
 function deleteStats(req, res){
-  Course.findById(req.user.profile._id.stats)
-  .then(course => {
-    course.stats.remove({_id: req.params.id})
-    course.save()
-    .then (() => {
-      res.redirect (`/profiles/${req.user.profile._id}}`)
+  console.log(req.params, '****************')
+  console.log('profileId', req.params.profileId)
+  console.log('courseId', req.params.courseId)
+  console.log('scoreId', req.params.scoreId)
+  Profile.findById(req.params.profileId)
+  .then(profile => {
+    // const course = profile.stats.id(req.params.courseId)
+    Course.findById(req.params.courseId)
+    .then(course => {
+      if(course.owner.equals(req.user.profile._id)){
+        course.strokes.remove({_id:req.params.scoreId})
+        course.save()
+        .then(()=> {
+          res.redirect (`/profiles/${profile._id}`)
+  
+        })
+      }else{
+        throw new Error('Not Authorized')
+      }
     })
-
-    })
+    // profile.stats.remove({_id: req.params.id})
+  })
 }
 
 
