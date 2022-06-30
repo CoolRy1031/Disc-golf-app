@@ -16,3 +16,8 @@ This will take you to a view all page.  This has information on the users that h
 
 ![Screen Shot 2022-06-30 at 11 02 23 AM](https://user-images.githubusercontent.com/104323543/176711101-1d7b4781-7bb7-4096-8b13-4daf87213ede.png)
 
+By clicking the details page you can keep track of your final score each time you play that specific course.  You can even write a review for fellow users to read.
+
+![Screen Shot 2022-06-30 at 11 06 37 AM](https://user-images.githubusercontent.com/104323543/176711989-47076b24-7d40-4bf7-80fd-584f2dfc224f.png)
+ 
+Finally, if you click on the player's tab on the top of the nav bar it will populate with all of the users' that have used this app.  If you click on other user's it will show the courses' they have played on and their scores they have posted.  If you click on yourself the view will be the same but will give you the option to delete your individual scores that you posted on the details page.
