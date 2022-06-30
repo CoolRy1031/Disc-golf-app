@@ -5,6 +5,7 @@ story board for the project is credited through whimsical and trello, both can b
 ![Disc Golf Erd](https://user-images.githubusercontent.com/104323543/176714033-903c88fc-7be0-448f-abde-c27dc64af4e5.png)
 
 
+![Screen Shot 2022-06-30 at 3 14 40 PM](https://user-images.githubusercontent.com/104323543/176759942-b1b9f586-82cf-483d-b7c4-5fb41e8dc41c.png)
 
 
 <img width="1083" alt="Screen Shot 2022-06-30 at 9 56 13 AM" src="https://user-images.githubusercontent.com/104323543/176707216-98df8171-262f-43cb-94cd-ef784e58cb49.png">
