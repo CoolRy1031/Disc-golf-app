@@ -25,3 +25,10 @@ By clicking the details page you can keep track of your final score each time yo
 ![Screen Shot 2022-06-30 at 11 06 37 AM](https://user-images.githubusercontent.com/104323543/176711989-47076b24-7d40-4bf7-80fd-584f2dfc224f.png)
  
 Finally, if you click on the player's tab on the top of the nav bar it will populate with all of the users' that have used this app.  If you click on other user's it will show the courses' they have played on and their scores they have posted.  If you click on yourself the view will be the same but will give you the option to delete your individual scores that you posted on the details page.
+
+
+Enhancements for the future
+1. I would like for users to be able to keep track of their scores as they play each hole.  This will have to have additional routing to another page where users can enter scores as they play.
+2. I would like to add locations for the course's. Which state and city they are in so other user's can find the course's that have been reviewed well or are generally interested in.
+3. I would like to add additional information on the course such as hole details.  Distance of each hole and difficulty of the course.
+4. As more users play this app, I would like to commit a seperate page for users to just be able to fetch the course's they play on. 
