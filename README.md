@@ -1,4 +1,4 @@
-# Disc-golf-app
+# Huck It!
 click link to launch app: https://coolry1031discgolf.herokuapp.com/
 story board for the project is credited through whimsical and trello, both can be viewed on this site: https://trello.com/b/yfbxUjEs/disc-golf-score-review
 
